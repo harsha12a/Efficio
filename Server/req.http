@@ -35,3 +35,27 @@ Content-Type: application/json
 
 ###
 delete http://localhost:3001/user/delete/675c2efde71012be1a0fcf04
+
+###
+get http://localhost:3001/task/Siddu@gmail.com
+
+###
+post http://localhost:3001/task/Siddu@gmail.com
+Content-Type: application/json
+
+{
+    "title": "Finish Assignment",
+    "description": "Complete leetcode",
+    "deadline": "2024-12-20"
+}
+
+### 
+put http://localhost:3001/task/Siddu@gmail.com/675c82da8e67a91dc20e6290
+Content-Type: application/json
+
+{
+    "description": "Complete Lab-Agenda"
+}
+
+###
+delete http://localhost:3001/task/Siddu@gmail.com/675c82da8e67a91dc20e6290

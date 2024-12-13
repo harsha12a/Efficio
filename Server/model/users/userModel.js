@@ -44,7 +44,7 @@ let UserSchema = new mongoose.Schema({
             description: String,
             status: {
                 type: String,
-                enum: ['pending', 'in-progress', 'completed'],
+                enum: ['pending','completed'],
                 default: 'pending'
             },
             createdAt: {

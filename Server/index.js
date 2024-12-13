@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 const userApi = require('./APIs/userApi')
+const taskApi = require('./APIs/taskApi')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -25,6 +26,7 @@ async function main(){
 app.listen(process.env.PORT,() => console.log('Server is running'))
 
 app.use('/user',userApi)
+app.use('/task', taskApi)
 
 app.use('/',(req,res)=>{
     res.send("Welcome to Efficio Server")
