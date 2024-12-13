@@ -4,8 +4,20 @@ require('dotenv').config()
 const userApi = require('./APIs/userApi')
 const mongoose = require('mongoose')
 
+app.use(express.json());
+app.use(express.urlencoded({extended : true}))
 
-// mongoose.connect
+main()
+    .then((res) => {
+        console.log("connection successfull");
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+async function main(){
+    await mongoose.connect(process.env.DB_URL);
+}
+
 app.listen(process.env.PORT,() => console.log('Server is running'))
 
 app.use('/user',userApi)
