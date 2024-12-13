@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -14,8 +14,10 @@ function Login() {
   } = useForm();
 
   const navigate = useNavigate();
-
-  const onUserLogin = async (credentials) => {
+  useEffect(()=>{
+    if(status===true)  navigate('/')
+  },[status])
+  const onUserLogin = (credentials) => {
     // try {
     //   const res = await axios.get("http://localhost:3000/users", credentials);
     //   if (res.data.length !== 0) {
@@ -28,7 +30,6 @@ function Login() {
     //   setErr("Something went wrong. Please try again later.",error);
     // }
     loginuser(credentials)
-    if(status===true) {console.log(curr); navigate('/')}
   };
 
   return (

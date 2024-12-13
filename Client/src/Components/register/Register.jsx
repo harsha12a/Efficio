@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import './Register.css'
+import "./Register.css";
 import axios from "axios";
 
 function Register() {
-  const { 
-    register, 
-    handleSubmit, 
-    formState: { errors } 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
   } = useForm();
 
   const [err, setErr] = useState("");
@@ -16,23 +16,27 @@ function Register() {
 
   // Handle user registration
   const onUserRegister = async (newUser) => {
+    if (newUser.checkPassword !== newUser.password)
+      setErr("Passwords doesn't match");
+    else {
+      const { checkPassword, ...newn } = newUser;
+    console.log(newn)
     try {
-      const res = await axios.post("http://localhost:3000/users",newUser)
-// "User registered successfully"
-      if (res.data.length !== 0) {
+      const res = await axios.post("http://localhost:3001/user/create", newn)
+      if (res.data.message === "User created successfully") {
         navigate("/login");
-        setErr('')
+        setErr("");
       } else {
-        setErr(data.message);
+        setErr(res.data.message);
       }
     } catch (error) {
-      setErr("Something went wrong. Please try again later.",error);
+      setErr("Something went wrong. Please try again later.", error);
     }
+  }
   };
 
   return (
-    <div  className="container">
-      
+    <div className="container">
       <h2 className="mt">User Registration</h2>
       <div className="row">
         <div className="col-10 col-md-6 mx-auto">
@@ -42,17 +46,17 @@ function Register() {
             className="p-4 border rounded bg-light"
           >
             <div className="mb-3">
-              <label htmlFor="username" className="form-label">
+              <label htmlFor="name" className="form-label">
                 Username
               </label>
               <input
                 type="text"
-                id="username"
+                id="name"
                 className="form-control"
-                {...register("username", { required: "Username is required" })}
+                {...register("name", { required: "Username is required" })}
               />
-              {errors.username && (
-                <p className="text-danger">{errors.username.message}</p>
+              {errors.name && (
+                <p className="text-danger">{errors.name.message}</p>
               )}
             </div>
 
@@ -121,7 +125,9 @@ function Register() {
                 type="tel"
                 id="phone"
                 className="form-control"
-                {...register("phone", { required: "Mobile number is required" })}
+                {...register("phone", {
+                  required: "Mobile number is required",
+                })}
               />
               {errors.phone && (
                 <p className="text-danger">{errors.phone.message}</p>

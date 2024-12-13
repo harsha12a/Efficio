@@ -7,8 +7,7 @@ let UserSchema = new mongoose.Schema({
     },
     password : {
         type : String,
-        required : true,
-        unique : true,
+        required : true
     },
     email : {
         type : String,
@@ -22,9 +21,8 @@ let UserSchema = new mongoose.Schema({
         },
     },
     phone : {
-        type: Number,
+        type: String,
         required: true,
-        unique: true,
         validate: {
             validator: function (v) {
                 return /^[0-9]{10}$/.test(v.toString());
@@ -33,7 +31,7 @@ let UserSchema = new mongoose.Schema({
         },
     },
     age : {
-        type : String,
+        type : Number,
         required : true
     },
     country : {
