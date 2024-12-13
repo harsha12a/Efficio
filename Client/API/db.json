@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1180",
+      "username": "red",
+      "password": "red123",
+      "checkPassword": "red123",
+      "email": "red@gmail.com",
+      "phone": "123",
+      "country": "ind",
+      "age": "19"
+    },
+    {
+      "id": "299e",
+      "username": "blue",
+      "password": "blue12",
+      "checkPassword": "blue12",
+      "email": "blue@gmail.com",
+      "phone": "234",
+      "country": "pak",
+      "age": "20"
+    }
+  ]
+}

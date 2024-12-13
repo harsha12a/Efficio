@@ -18,6 +18,10 @@
     padding: 0;
   }
   
+  .mt{
+    margin-top: 50px;
+  }
+
   header {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -78,7 +82,9 @@
   
   .text-danger {
     color: var(--error-color);
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
     margin-top: -0.5rem;
     margin-bottom: 1rem;
   }
