@@ -20,7 +20,9 @@ function Register() {
       setErr("Passwords doesn't match");
     else {
       const { checkPassword, ...newn } = newUser;
-    console.log(newn)
+      newn.tasks = [];
+      newn.assigned = [];
+    //   console.log(newn)
     try {
       const res = await axios.post("http://localhost:3001/user/create", newn)
       if (res.data.message === "User created successfully") {
