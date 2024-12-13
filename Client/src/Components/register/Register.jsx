@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import './Register.css'
-
+import axios from "axios";
 
 function Register() {
   const { 
@@ -17,28 +17,23 @@ function Register() {
   // Handle user registration
   const onUserRegister = async (newUser) => {
     try {
-      const res = await fetch("http://localhost:4000/user-api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newUser),
-      });
-
-      const data = await res.json();
-
-      if (data.message === "User registered successfully") {
+      const res = await axios.post("http://localhost:3000/users",newUser)
+// "User registered successfully"
+      if (res.data.length !== 0) {
         navigate("/login");
+        setErr('')
       } else {
         setErr(data.message);
       }
     } catch (error) {
-      setErr("Something went wrong. Please try again later.");
+      setErr("Something went wrong. Please try again later.",error);
     }
   };
 
   return (
-    <div  class="container">
+    <div  className="container">
       
-      <h2 className="text-center ">User Registration</h2>
+      <h2 className="mt">User Registration</h2>
       <div className="row">
         <div className="col-10 col-md-6 mx-auto">
           {err && <p className="text-danger text-center">{err}</p>}
@@ -46,7 +41,6 @@ function Register() {
             onSubmit={handleSubmit(onUserRegister)}
             className="p-4 border rounded bg-light"
           >
-            {/* Username */}
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
                 Username
@@ -62,7 +56,6 @@ function Register() {
               )}
             </div>
 
-            {/* Password */}
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
                 Password
@@ -84,7 +77,27 @@ function Register() {
               )}
             </div>
 
-            {/* Email */}
+            <div className="mb-3">
+              <label htmlFor="checkPassword" className="form-label">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="checkPassword"
+                className="form-control"
+                {...register("checkPassword", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                })}
+              />
+              {errors.checkPassword && (
+                <p className="text-danger">{errors.checkPassword.message}</p>
+              )}
+            </div>
+
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Email
@@ -100,41 +113,51 @@ function Register() {
               )}
             </div>
 
-            {/* Mobile Number */}
             <div className="mb-3">
-              <label htmlFor="mobile" className="form-label">
+              <label htmlFor="phone" className="form-label">
                 Mobile Number
               </label>
               <input
                 type="tel"
-                id="mobile"
+                id="phone"
                 className="form-control"
-                {...register("mobile", { required: "Mobile number is required" })}
+                {...register("phone", { required: "Mobile number is required" })}
               />
-              {errors.mobile && (
-                <p className="text-danger">{errors.mobile.message}</p>
+              {errors.phone && (
+                <p className="text-danger">{errors.phone.message}</p>
               )}
             </div>
 
-            {/* Profile Image */}
             <div className="mb-3">
-              <label htmlFor="profileImage" className="form-label">
-                Profile Image URL
+              <label htmlFor="country" className="form-label">
+                Country
               </label>
               <input
-                type="text"
-                id="profileImage"
+                type="country"
+                id="country"
                 className="form-control"
-                {...register("profileImage", {
-                  required: "Profile image URL is required",
-                })}
+                {...register("country", { required: "Country is required" })}
               />
-              {errors.profileImage && (
-                <p className="text-danger">{errors.profileImage.message}</p>
+              {errors.country && (
+                <p className="text-danger">{errors.country.message}</p>
               )}
             </div>
 
-            {/* Submit Button */}
+            <div className="mb-3">
+              <label htmlFor="age" className="form-label">
+                Age
+              </label>
+              <input
+                type="age"
+                id="age"
+                className="form-control"
+                {...register("age", { required: "Age is required" })}
+              />
+              {errors.age && (
+                <p className="text-danger">{errors.age.message}</p>
+              )}
+            </div>
+
             <button type="submit" className="btn btn-primary w-100">
               Register
             </button>

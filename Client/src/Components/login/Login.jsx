@@ -1,49 +1,39 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // Import your user context if applicable
-// import { userLoginContext } from "../../contexts/userLoginContext";
+import { UserLoginContext } from "../../context/userLoginContext";
 import './Login.css'
 function Login() {
+  let {err,loginuser,status,curr} = useContext(UserLoginContext)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [err, setErr] = useState("");
   const navigate = useNavigate();
 
-  // Example: Using context for managing logged-in user state
-  // const { setUser } = useContext(userLoginContext);
-
-  // Handle login
   const onUserLogin = async (credentials) => {
-    try {
-      const res = await fetch("http://localhost:4000/user-api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(credentials),
-      });
-
-      const data = await res.json();
-
-      if (data.message === "Login successful") {
-        // Example: Save user details in context or local storage
-        // setUser(data.user);
-        localStorage.setItem("token", data.token);
-        navigate("/home"); // Redirect to the home/dashboard page
-      } else {
-        setErr(data.message);
-      }
-    } catch (error) {
-      setErr("Something went wrong. Please try again later.");
-    }
+    // try {
+    //   const res = await axios.get("http://localhost:3000/users", credentials);
+    //   if (res.data.length !== 0) {
+    //     localStorage.setItem("token", data.token);
+    //     navigate("/home");
+    //   } else {
+    //     setErr("User not found");
+    //   }
+    // } catch (error) {
+    //   setErr("Something went wrong. Please try again later.",error);
+    // }
+    loginuser(credentials)
+    if(status===true) {console.log(curr); navigate('/')}
   };
 
   return (
     <div>
-      <h2 className="text-center">User Login</h2>
+      <h2 className="mt">User Login</h2>
       <div className="row">
         <div className="col-10 col-md-6 mx-auto">
           {err && <p className="text-danger text-center">{err}</p>}

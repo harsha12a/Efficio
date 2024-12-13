@@ -12,14 +12,14 @@ function Header() {
 //   let { logoutUser = () => {}, userLoginStatus } = useContext(userLoginContext);
 
   return (
-    <div className="d-flex flex-wrap justify-content-around header">
+    <div className="d-flex flex-wrap justify-content-between header">
       <h1>
         {" "}
       <img className="logo" src={Logo} alt="" />
       </h1>
       <ul className="nav fs-5 p-3">
         <li className="nav-item">
-          <Link to="" className="nav-link text-white">
+          <Link to="/" className="nav-link text-white">
             <HiOutlineHome className="fs-3 text-warning " /> Home
           </Link>
         </li>

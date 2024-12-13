@@ -12,7 +12,7 @@ function App() {
       element: <Rootlayout />,
       children: [
         {
-          path: "",
+          path: "/",
           element: <Home />,
         },
         {
