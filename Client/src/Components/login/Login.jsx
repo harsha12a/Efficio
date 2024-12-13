@@ -35,7 +35,7 @@ function Login() {
     <div>
       <h2 className="mt">User Login</h2>
       <div>
-        <div className="col-10 col-md-6 mx-auto">
+        <div className="col-sm-10 mx-auto col-md-6 col-lg-4">
           {err && <p className="text-danger text-center">{err}</p>}
           <form
             onSubmit={handleSubmit(onUserLogin)}

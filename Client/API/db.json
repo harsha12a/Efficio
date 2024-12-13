@@ -19,6 +19,16 @@
       "phone": "234",
       "country": "pak",
       "age": "20"
+    },
+    {
+      "id": "fe7f",
+      "username": "harshabambu",
+      "password": "000000",
+      "checkPassword": "000000",
+      "email": "22501a05d9@pvpsit.ac.in",
+      "phone": "404919",
+      "country": "India",
+      "age": "18"
     }
   ]
 }

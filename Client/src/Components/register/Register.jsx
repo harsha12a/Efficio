@@ -36,14 +36,14 @@ function Register() {
   };
 
   return (
-    <div className="container">
+    <div className="">
       <h2 className="mt">User Registration</h2>
-      <div className="row">
-        <div className="col-10 col-md-6 mx-auto">
+      <div className="">
+        <div className="col-sm-10 mx-auto col-md-6 col-lg-4">
           {err && <p className="text-danger text-center">{err}</p>}
           <form
             onSubmit={handleSubmit(onUserRegister)}
-            className="p-4 border rounded bg-light"
+            className="p-4 border rounded bg-light mb-5"
           >
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
