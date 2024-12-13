@@ -14,20 +14,9 @@ function Login() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (status === true) navigate("dashboard");
+    if (status === true) navigate("../dashboard");
   }, [status]);
   const onUserLogin = (credentials) => {
-    // try {
-    //   const res = await axios.get("http://localhost:3000/users", credentials);
-    //   if (res.data.length !== 0) {
-    //     localStorage.setItem("token", data.token);
-    //     navigate("/home");
-    //   } else {
-    //     setErr("User not found");
-    //   }
-    // } catch (error) {
-    //   setErr("Something went wrong. Please try again later.",error);
-    // }
     loginuser(credentials);
   };
 

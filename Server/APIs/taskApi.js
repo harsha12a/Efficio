@@ -4,19 +4,6 @@ const User = require('../model/users/userModel');
 const asyncHandler = require('express-async-handler');
 taskApp.use(express.json())
 
-const getTasks = async (usermail) => {
-    try {
-        const user = await User.findOne({email : usermail});
-        if (!user) {
-            throw new Error("User not found");
-        }
-
-        return user.tasks;
-    } catch (error) {
-        console.error("Error fetching tasks:", error.message);
-        throw error;
-    }
-};
 
 const createTask = async (useremail, taskData) => {
     try {
@@ -79,25 +66,25 @@ const deleteTask = async (useremail, taskId) => {
 
 taskApp.post('/:email', async (req, res) => {
     try {
-        const task = await createTask(req.params.email, req.body);
-        res.status(201).json({ success: true, task });
+        const tasks = await createTask(req.params.email, req.body);
+        res.status(201).json({ success: true, tasks:tasks });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
 });
 
 taskApp.get('/:email', async (req, res) => {
-    try {
-        const tasks = await getTasks(req.params.email);
-        res.status(200).json({ success: true, tasks });
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
-    }
+    let usermail = req.params.email;
+        const user = await User.findOne({email : usermail});
+        if(!user) {
+            res.status({message : "User not found"})
+        }
+        res.send({message : "User found", tasks : user.tasks})
 });
 
-taskApp.put('/:userId/:taskId', async (req, res) => {
+taskApp.put('/:email/:taskId', async (req, res) => {
     try {
-        const task = await updateTask(req.params.userId, req.params.taskId, req.body);
+        const task = await updateTask(req.params.email, req.params.taskId, req.body);
         res.status(200).json({ success: true, task });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });

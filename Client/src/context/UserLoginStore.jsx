@@ -1,30 +1,36 @@
 import axios from "axios";
 import { UserLoginContext } from "./UserLoginContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function UserLoginStore({ children }) {
-  let [curr, setcurr] = useState(null);
   let [status, setStatus] = useState(false);
   let [token, setToken] = useState("");
   let [err, setErr] = useState("");
-  async function loginuser(obj) {
-    try {
-      const res = await axios.post("http://localhost:3001/user/login", obj);
-      if (res.data.payload !== null) {
-        setStatus(true)
-        setErr("");
-        setcurr(res.data.payload);
-      } else {
-        setErr("User not found");
-      }
-    } catch (error) {
-      setErr("Something went wrong. Please try again later.", error);
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    if (user) {
+      setStatus(true);
     }
+  }, [user]);
+  async function loginuser(obj) {
+    axios
+      .post("http://localhost:3001/user/login", obj)
+      .then((res) => {
+        if (res.data.message === "login success") {
+          setStatus(true);
+          sessionStorage.setItem("user", JSON.stringify(res.data.payload));
+          setErr("");
+        } else {
+          setErr(res.data.message);
+        }
+      })
+      .catch((err) => {
+        setErr(err.message);
+      });
   }
   function logoutuser() {
-    setcurr({});
+    sessionStorage.removeItem("user");
     setStatus(false);
     setErr("");
-    // sessionStorage.removeItem("loginDetails");
   }
   return (
     <UserLoginContext.Provider
@@ -35,8 +41,6 @@ function UserLoginStore({ children }) {
         setStatus,
         err,
         setErr,
-        curr,
-        setcurr,
         token,
       }}
     >

@@ -40,7 +40,7 @@ function Header() {
       ) : (
         <ul className="nav fs-5 p-3">
           <li className="nav-item">
-            <Link to="/" className="nav-link text-white">
+            <Link to="/dashboard" className="nav-link text-white">
               <HiOutlineHome className=" fs-3 text-warning " /> Home
             </Link>
           </li>

@@ -1,0 +1,71 @@
+.block{
+    width: 500px;
+    max-width: 500px;
+}
+/* Task.css */
+
+/* Default styles for larger screens */
+.block {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.bg-secondary {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+}
+
+.p-3 {
+  padding: 16px;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  /* Stack everything vertically */
+  .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Adjust font sizes for better readability */
+  .d-flex div {
+    font-size: 14px; /* Smaller text size for small screens */
+    margin-bottom: 10px;
+  }
+
+  /* Adjust padding for smaller screens */
+  .p-3 {
+    padding: 10px;
+  }
+
+  /* Adjust title and status layout on small screens */
+  .d-flex .justify-content-between {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .block {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .block .d-flex {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
