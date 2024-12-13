@@ -2,7 +2,10 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 const userApi = require('./APIs/userApi')
+const mongoose = require('mongoose')
 
+
+// mongoose.connect
 app.listen(process.env.PORT,() => console.log('Server is running'))
 
 app.use('/user',userApi)
