@@ -5,9 +5,9 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs')
 userApp.use(express.json())
 
-userApp.get('/',(req,res)=>{
-    res.send("Welcome to User API")
-})
+// userApp.get('/',(req,res)=>{
+//     res.send("Welcome to User API")
+// })
 
 userApp.post('/create', asyncHandler(async (req, res) => {
     let newn = req.body
@@ -25,7 +25,7 @@ userApp.post('/create', asyncHandler(async (req, res) => {
 }))
 
 userApp.post('/login',asyncHandler(async(req,res)=>{
-    let user = await User.findOne({name:req.body.name})
+    let user = await User.findOne({email:req.body.email})
     if(user === null){
         res.status(404).send({msg : "User not found"})
     }

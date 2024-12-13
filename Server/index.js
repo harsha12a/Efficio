@@ -3,7 +3,11 @@ const app = express()
 require('dotenv').config()
 const userApi = require('./APIs/userApi')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
 

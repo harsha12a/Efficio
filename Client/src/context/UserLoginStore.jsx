@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserLoginContext } from "./userLoginContext";
+import { UserLoginContext } from "./UserLoginContext";
 import { useState } from "react";
 function UserLoginStore({ children }) {
   let [curr, setcurr] = useState(null);
@@ -8,11 +8,11 @@ function UserLoginStore({ children }) {
   let [err, setErr] = useState("");
   async function loginuser(obj) {
     try {
-      const res = await axios.get("http://localhost:3000/users", obj);
-      if (res.data.length !== 0) {
+      const res = await axios.post("http://localhost:3001/user/login", obj);
+      if (res.data.payload !== null) {
         setStatus(true)
         setErr("");
-        setcurr(res.data[0]);
+        setcurr(res.data.payload);
       } else {
         setErr("User not found");
       }
@@ -24,7 +24,7 @@ function UserLoginStore({ children }) {
     setcurr({});
     setStatus(false);
     setErr("");
-    sessionStorage.removeItem("loginDetails");
+    // sessionStorage.removeItem("loginDetails");
   }
   return (
     <UserLoginContext.Provider

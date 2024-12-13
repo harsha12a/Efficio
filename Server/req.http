@@ -19,8 +19,8 @@ post http://localhost:3001/user/login
 Content-Type: application/json
 
 {
-    "name": "Siddu",
-    "password" : "Siddulove"
+    "email": "red@gmail.com",
+    "password" : "red123"
 }
 
 ###
