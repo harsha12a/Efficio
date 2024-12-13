@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom'
 function Rootlayout() {
   return (
     <div>
-        <Header></Header>
+        <Header/>
         <div style={{minHeight:"100vh"}}>
             <Outlet/></div>
-        <Footer></Footer>
+        <Footer/>
     </div>
   )
 }

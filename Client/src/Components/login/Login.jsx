@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 // Import your user context if applicable
 import { UserLoginContext } from "../../context/UserLoginContext";
-import './Login.css'
+import "./Login.css";
 function Login() {
-  let {err,loginuser,status,curr} = useContext(UserLoginContext)
+  let { err, loginuser, status, curr } = useContext(UserLoginContext);
   const {
     register,
     handleSubmit,
@@ -14,9 +13,9 @@ function Login() {
   } = useForm();
 
   const navigate = useNavigate();
-  useEffect(()=>{
-    if(status===true)  navigate('/')
-  },[status])
+  useEffect(() => {
+    if (status === true) navigate("/");
+  }, [status]);
   const onUserLogin = (credentials) => {
     // try {
     //   const res = await axios.get("http://localhost:3000/users", credentials);
@@ -29,13 +28,13 @@ function Login() {
     // } catch (error) {
     //   setErr("Something went wrong. Please try again later.",error);
     // }
-    loginuser(credentials)
+    loginuser(credentials);
   };
 
   return (
     <div>
       <h2 className="mt">User Login</h2>
-      <div className="row">
+      <div>
         <div className="col-10 col-md-6 mx-auto">
           {err && <p className="text-danger text-center">{err}</p>}
           <form
