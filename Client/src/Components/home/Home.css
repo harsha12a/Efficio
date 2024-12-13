@@ -66,6 +66,7 @@
     display: block;
     margin: 0 auto;
     transition: background-color 0.3s;
+    width: 200px;
   }
   
   .cta-button:hover {

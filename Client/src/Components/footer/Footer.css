@@ -59,10 +59,14 @@
   .legal a:hover {
     color: #0ec9a4;
   }
-  
+  .contact-info{
+    padding-right: 30px;
+  }
   .copyright {
-    margin-top: 40px;
     font-size: 14px;
     color: #bdc3c7;
   }
-  
+.contact-section{
+  justify-content: center;
+  display: flex;
+}
