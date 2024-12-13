@@ -14,7 +14,7 @@ function Login() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (status === true) navigate("/");
+    if (status === true) navigate("dashboard");
   }, [status]);
   const onUserLogin = (credentials) => {
     // try {
@@ -36,13 +36,16 @@ function Login() {
       <h2 className="mt">User Login</h2>
       <div>
         <div className="col-sm-10 mx-auto col-md-6 col-lg-4">
+
           {err && <p className="text-danger text-center">{err}</p>}
           <form
+          
             onSubmit={handleSubmit(onUserLogin)}
-            className="p-4 border rounded bg-light"
+            className="p-4 border rounded bg-"
           >
             {/* Email */}
             <div className="mb-3">
+                
               <label htmlFor="email" className="form-label">
                 Email
               </label>
@@ -74,7 +77,7 @@ function Login() {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" id="submit" className="btn btn-primary w-100">
               Login
             </button>
           </form>

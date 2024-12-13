@@ -1,94 +1,10 @@
-:root {
-    --primary-color: #0c0c06; /* Blue */
-    --secondary-color: #50E3C2; /* Teal */
-    --background-color: #F5F7FA; /* Light Gray */
-    --text-color: #333333; /* Dark Gray */
-    --error-color: #E94E77; /* Red */
-    --button-hover-color: #aa758b; /* Darker Blue */
-  }
-  
-  /* General Styling */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  /* Center Form Section */
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px); /* Adjust height considering the header */
-  }
-  
-  /* Form Styling */
-  form {
-    background-color: #ffffff;
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: auto;
-  }
-  
-  label {
-    color: var(--text-color);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  input {
-    width: 100%;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 1rem;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 4px var(--primary-color);
-  }
-  
-  
-  /* Button Styling */
-  button {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: var(--button-hover-color);
-  }
-  
+#submit{
+    background-color: #1abc9c;
+
+    color:black;
+    border:1px solid black;
+}
+#email, #password{
+    box-shadow: 0 0 3px  #1abc9c;
+
+}

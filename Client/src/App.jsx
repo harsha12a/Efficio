@@ -5,6 +5,7 @@ import Home from "./Components/home/Home";
 import UserProfile from "./Components/userProfile/UserProfile";
 import Login from "./Components/login/Login";
 import Register from "./Components/register/Register";
+import Dashboard from "./Components/dashboard/Dashboard";
 function App() {
   const browserRouter = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ function App() {
         {
           path:'userProfile',
           element:<UserProfile />,
+        },
+        {
+          path: "dashboard",
+          element:<Dashboard />
         }
       ],
     },
