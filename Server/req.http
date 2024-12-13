@@ -6,12 +6,21 @@ post http://localhost:3001/user/create
 Content-Type: application/json
 
 {
-    "name": "Vardhan",
-    "password": "Vardhanlove",
-    "email": "Vardhan@gmail.com",
-    "phone": 5624549870,
-    "age": "22",
+    "name": "Siddu",
+    "password": "Siddulove",
+    "email": "Siddu@gmail.com",
+    "phone": 9874563210,
+    "age": "21",
     "country": "INDIA"
+}
+
+###
+post http://localhost:3001/user/login
+Content-Type: application/json
+
+{
+    "name": "Siddu",
+    "password" : "Siddulove"
 }
 
 ###
