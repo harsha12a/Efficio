@@ -1,5 +1,5 @@
 ###
-get http://localhost:3001/user
+get http://localhost:3001/user/
 
 ###
 post http://localhost:3001/user/create
@@ -19,8 +19,8 @@ post http://localhost:3001/user/login
 Content-Type: application/json
 
 {
-    "email": "red@gmail.com",
-    "password" : "red123"
+    "email": "Siddu@gmail.com",
+    "password" : "Siddulove"
 }
 
 ###
