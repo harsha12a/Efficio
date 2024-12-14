@@ -26,6 +26,7 @@ function Task({task}) {
         <div><b>Title</b>-{task.title}</div>
         <MdOutlineDelete onClick={() => deleteTask(task)} className='fs-3' style={{cursor:"pointer"}}/>
       </div>
+      
       <div className='d-flex justify-content-between'>
         <div><b>Description</b>-{task.description}</div>
         <MdEdit onClick={()=>{console.log(task); setVisible(true)}} style={{cursor:"pointer"}} className='mt-2 fs-3' /></div>
