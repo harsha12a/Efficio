@@ -20,9 +20,9 @@ function UserProfile() {
         <p className="card-text" style={{ color: "#555", marginBottom: "5px" }}>{user.country}</p>
         <p className="card-text" style={{ color: "#555" }}>{user.phone}</p>
       </div>
-     
-    </div>
-     <BarGraph />
+       </div>
+       {console.log(user)}
+     <BarGraph len={user.tasks}/>
     </div>  
   );
 }
