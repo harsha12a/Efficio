@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Task from "../Task/Task";
-import { useForm } from "react-hook-form";
 import TaskForm from "../Taskadder/TaskForm";
 import {Link} from 'react-router-dom'
 import { Outlet } from "react-router-dom";
-import './Dashboard.css';
+import './DashBoard.css';
 function Dashboard() {
-  let {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
   let user = JSON.parse(sessionStorage.getItem("user"));
   let [tasks, setTask] = useState([]);
   let [visible, setVisible] = useState(false);
