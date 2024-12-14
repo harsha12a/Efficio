@@ -21,7 +21,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="">
       <h2 className="mt">User Login</h2>
       <div>
         <div className="col-sm-10 mx-auto col-md-6 col-lg-4">

@@ -4,7 +4,7 @@
     color:black;
     border:1px solid black;
 }
-#email, #password{
+#email, #password,#phone,#age,#country,#password,#name,#checkPassword{
     box-shadow: 0 0 3px  #1abc9c;
 
 }

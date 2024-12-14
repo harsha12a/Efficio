@@ -6,6 +6,11 @@ import UserProfile from "./Components/userProfile/UserProfile";
 import Login from "./Components/login/Login";
 import Register from "./Components/register/Register";
 import Dashboard from "./Components/dashboard/Dashboard";
+import Focus from "./Components/focus/Focus";
+import Pomodora from "./Components/pomodoro/Pomodora";
+import Settimer from "./Components/settimer/Settimer";
+import Breathing from "./Components/breathing/Breathing";
+import Tictactoe from "./Components/tictactoe/Tictactoe";
 function App() {
   const browserRouter = createBrowserRouter([
     {
@@ -30,8 +35,30 @@ function App() {
         },
         {
           path: "dashboard",
-          element:<Dashboard />
-        }
+          element:<Dashboard />,
+         },{
+          path:"focus",
+          element:<Focus/>,
+          children:[
+            {
+              path:"pomodora",
+              element:<Pomodora/>
+            },
+            {
+              path:"settimer",
+              element:<Settimer/>
+            },
+            {
+              path:"breathing",
+              element:<Breathing/>
+            },
+            {
+              path:"tictactoe",
+              element:<Tictactoe/>
+            }
+          ],
+
+         }
       ],
     },
   ]);

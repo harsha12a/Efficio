@@ -1,0 +1,71 @@
+.pomodoro {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #5942cd;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    width: 270px;
+    margin: auto;
+  }
+  
+  .pomodoro h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .pomodoro .message {
+    margin: auto;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .pomodoro .timer {
+    font-size: 3rem;
+    margin: 20px 0;
+    background: #d8e3e9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pomodoro .controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .pomodoro .btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pomodoro .btn.start-stop {
+    background: #f57f17;
+  }
+  
+  .pomodoro .btn.start-stop:hover {
+    background: #ffb300;
+  }
+  
+  .pomodoro .btn.reset {
+    background: #d32f2f;
+  }
+  
+  .pomodoro .btn.reset:hover {
+    background: #f44336;
+  }
+  
+  .pomodoro .timer,
+  .pomodoro .controls .btn {
+    font-family: "Roboto Mono", monospace;
+    padding-left: 20px;
+  }
+  

@@ -4,6 +4,9 @@ import "./Dashboard.css";
 import Task from "../Task/Task";
 import { useForm } from "react-hook-form";
 import TaskForm from "../Taskadder/TaskForm";
+import Pomodoro from "../pomodoro/Pomodora";
+import {Link} from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 function Dashboard() {
   let {
     handleSubmit,
@@ -14,13 +17,13 @@ function Dashboard() {
   let [tasks, setTask] = useState([]);
   let [visible, setVisible] = useState(false);
   useEffect(() => {
-    axios.get(`http://localhost:3001/task/${user?.email}`).then((res) => {
+    axios.get(`https://efficio-one.vercel.app/task/${user?.email}`).then((res) => {
       setTask(res.data.tasks)
     });
   }, [user]);
   let addTask = (data) => {
     axios
-      .post(`http://localhost:3001/task/${user?.email}`, data)
+      .post(`https://efficio-one.vercel.app/task/${user?.email}`, data)
       .then((res) => {
         setTask([res.data.tasks, ...tasks]);
       })
@@ -60,8 +63,15 @@ function Dashboard() {
             ))}
           </div>
         )}
+        
       </div>
-    </>
+      <div className="focus-container">
+      <button className="focus-button">
+      <Link to="../focus" >Focus</Link>
+      </button>
+      <Outlet />
+    </div>
+        </>
   );
 }
 

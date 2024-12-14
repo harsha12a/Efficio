@@ -13,3 +13,43 @@
     transform: translate(-50%, -50%);
     box-shadow: 2px 4px 50px black;
 }
+/* Container styling */
+.focus-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Button styling */
+  .focus-button {
+    background-color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .focus-button:hover {
+    background-color: #1d6fa5;
+    transform: scale(1.05);
+  }
+  
+  .focus-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Link styling inside the button */
+  .focus-link {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .focus-link:visited {
+    color: white;
+  }
+  

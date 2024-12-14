@@ -9,12 +9,12 @@ function Task({task}) {
   let user = JSON.parse(sessionStorage.getItem("user"));
   let [visible, setVisible] = useState(false);
   let deleteTask = (task) =>{
-    axios.delete(`http://localhost:3001/task/${user.email}/${task._id}`)
+    axios.delete(`https://efficio-one.vercel.app/task/${user.email}/${task._id}`)
   }
   let update = (tasks) =>{
     
     tasks = { ...tasks, createdAt: task.createdAt, closedAt: task.closedAt, _id: task._id };
-    axios.put(`http://localhost:3001/task/${user.email}/${task._id}`,tasks)
+    axios.put(`https://efficio-one.vercel.app/task/${user.email}/${task._id}`,tasks)
     setVisible(false);
   }
   return (

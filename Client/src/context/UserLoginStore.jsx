@@ -13,7 +13,7 @@ function UserLoginStore({ children }) {
   }, [user]);
   async function loginuser(obj) {
     axios
-      .post("http://localhost:3001/user/login", obj)
+      .post("https://efficio-one.vercel.app/user/login", obj)
       .then((res) => {
         if (res.data.message === "login success") {
           setStatus(true);

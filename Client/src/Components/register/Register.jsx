@@ -24,7 +24,7 @@ function Register() {
       newn.assigned = [];
     //   console.log(newn)
     try {
-      const res = await axios.post("http://localhost:3001/user/create", newn)
+      const res = await axios.post("https://efficio-one.vercel.app/user/create", newn)
       if (res.data.message === "User created successfully") {
         navigate("/login");
         setErr("");
@@ -166,7 +166,7 @@ function Register() {
               )}
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" id="submit" className="w-100">
               Register
             </button>
           </form>
