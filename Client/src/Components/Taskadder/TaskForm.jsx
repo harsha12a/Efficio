@@ -57,7 +57,7 @@ function TaskForm({func, setVisible, obj}) {
           </label>
           </div>
           {errors.status && <p className="text-danger">Status is required</p>}
-          <button type="submit">Submit</button>
+          <button type="submit" className='d-flex justify-content-center mx-auto'>Submit</button>
         </form>
     </div>
   )

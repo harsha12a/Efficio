@@ -6,11 +6,11 @@ function Focus() {
   return (
     <div className="focus-container">
       <h1 className='focus-title '>Focus Activities</h1>
-      <nav className="focus-nav">
-        <Link to="pomodora" className="nav-link">Pomodora</Link>
-        <Link to="settimer" className="nav-link">Settimer</Link>
-        <Link to="breathing" className="nav-link">Breathing</Link>
-        <Link to="tictactoe" className="nav-link">Tictactoe</Link>
+      <nav className="focus-nav d-flex flex-wrap">
+        <Link to="pomodora" className="px-2 nav-link">Pomodora</Link>
+        <Link to="settimer" className="px-2 nav-link">Settimer</Link>
+        <Link to="breathing" className="px-2 nav-link">Breathing</Link>
+        <Link to="tictactoe" className="px-2 nav-link">Tictactoe</Link>
       </nav>
 
       <Outlet />

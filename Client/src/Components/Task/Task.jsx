@@ -29,7 +29,7 @@ function Task({task}) {
       
       <div className='d-flex justify-content-between'>
         <div><b>Description</b>-{task.description}</div>
-        <MdEdit onClick={()=>{console.log(task); setVisible(true)}} style={{cursor:"pointer"}} className='mt-2 fs-3' /></div>
+        <MdEdit onClick={()=>{setVisible(true)}} style={{cursor:"pointer"}} className='mt-2 fs-3' /></div>
       <div><b>Status</b>-{task.status}</div>
       <div><b>Deadline</b>-{task.deadline.substr(0,10)}</div>
     </div>
