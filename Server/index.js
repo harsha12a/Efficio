@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 app.use(cors({
-    origin: "*"
+    origin: "https://efficio-frontend.vercel.app"
 }))
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
