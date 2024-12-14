@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Dashboard.css";
 import Task from "../Task/Task";
 import { useForm } from "react-hook-form";
 import TaskForm from "../Taskadder/TaskForm";
-import Pomodoro from "../pomodoro/Pomodora";
 import {Link} from 'react-router-dom'
 import { Outlet } from "react-router-dom";
+import './Dashboard.css';
 function Dashboard() {
   let {
     handleSubmit,
